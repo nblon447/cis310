@@ -33,6 +33,7 @@ body {
     display: inline;
     text-align: center;
     cursor: pointer;
+    font-size: 15px;
 }
 
 .btn__elevated {
