@@ -23,8 +23,8 @@ print '<div class="content">
     <span class="flexSpace"></span>
     <nav>
         <ul>
-            <li><a class="link navLink" href="./privacy.php"><button class="btn btn__text">PRIVACY</button></a></li>
-            <li><a class="link navLink" href="./survey.php"><button class="btn btn__text">SURVEY</button></a></li>
+            <li><a class="link navLink" href="./privacy.php"><div class="btn btn__text">PRIVACY</div></a></li>
+            <li><a class="link navLink" href="./survey.php"><div class="btn btn__text">SURVEY</div></a></li>
           </ul>
     </nav>
 </header>
