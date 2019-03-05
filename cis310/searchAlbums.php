@@ -29,7 +29,7 @@ print '<header id="header">
 </header>
 <div class="paneContainer">
 <div class="pane">
-<div class="surveyContent">
+<div class="searchContent">
     <form id="surveyForm" action="./result.php"
 	onsubmit="return isValid();"
     method="POST" enctype="text/plain">
