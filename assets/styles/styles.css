@@ -209,6 +209,10 @@ hr {
 
 /* END PRIVACY.PHP  */
 
+.searchContent {
+    margin: 50px 25% 100px 25%;
+	padding-top: 10%;
+}
 
 /* SURVEY.PHP */
 
@@ -225,6 +229,7 @@ h2 {
     font-size: 1.5em;
     font-weight: 800;
     margin-bottom: 2em;
+    margin-left: 14px;
 }
 
 .question {
