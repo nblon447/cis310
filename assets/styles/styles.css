@@ -216,6 +216,11 @@ hr {
     margin: 50px 25% 100px 25%;
 }
 
+.searchContent {
+    margin: 50px 25% 100px 25%;
+	padding-top: 15%;
+}
+
 span#nullInputError {
     display: none;
     color:red
