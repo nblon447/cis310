@@ -14,6 +14,14 @@ function isValid() {
     return false;
 }
 
+function isValidSearch() {
+	if (search.value) {
+		return true;
+	}
+	toggleError(true,'nullInputError');
+	return false;
+}
+
 function isNotNull(inputGroup) {
     for(let i = 0; i < inputGroup.length; i++) {
         if(inputGroup[i].checked) {
