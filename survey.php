@@ -14,7 +14,7 @@ print $page->getTopSection();
 print '<div class="content">
 <header id="header">
     <div>
-        <a class="link" href="./index.php">
+        <a class="link" href="./index.html">
             <h1 class="siteTitle">
                 CNMT Survey
             </h1>
@@ -22,11 +22,11 @@ print '<div class="content">
     </div>
     <span class="flexSpace"></span>
     <nav>
-    <ul>
-    <li><a class="link navLink" href="./privacy.php"><div class="btn btn__text">PRIVACY</div></a></li>
-<li><a class="link navLink" href="./survey.php"><div class="btn btn__text">SURVEY</div></a></li>
-<li><a class="link navLink" href="./searchAlbums.php"><div class="btn btn__text">SEARCH</div></a></li>
-</ul>
+        <ul>
+                <li><a class="link navLink" href="./privacy.php"><div class="btn btn__text">PRIVACY</div></a></li>
+            <li><a class="link navLink" href="./survey.php"><div class="btn btn__text">SURVEY</div></a></li>
+		    <li><a class="link navLink" href="./searchAlbums.php"><div class="btn btn__text">SEARCH</div></a></li>
+        </ul>
     </nav>
     </header>
 <div class="paneContainer">
@@ -48,28 +48,28 @@ print '<div class="content">
                     <p>What is your major:</p>
                     <div class="options">
                         <div class="checkContainer">
-                            <input type="checkbox" id="appDev" name="appDev">
+                            <input type="checkbox" id="appDev" value="AppDev" name="major">
                             <label for="appDev">CIS-AppDev</label>
                         </div>
                         <div class="checkContainer">
-                            <input type="checkbox" id="networking" name="networking">
+                            <input type="checkbox" id="networking" value="Networking" name="major">
                             <label for="networking">CIS-Networking</label>
                         </div>
                         <div class="checkContainer">
-                            <input type="checkbox" id="wdmd" name="wdmd">
+                            <input type="checkbox" id="wdmd" value="WDMD" name="major">
                             <label for="wdmd">Web and Digital Media Development</label>
                         </div>
 
                         <div class="checkContainer">
-                            <input type="checkbox" id="wd" name="wd">
+                            <input type="checkbox" id="wd" value="WD" name="major">
                             <label for="wd">Web Development</label>
                         </div>
                         <div class="checkContainer">
-                            <input type="checkbox" id="hti" name="hti">
+                            <input type="checkbox" id="hti" value="HTI" name="major">
                             <label for="hti">Human Technology Interaction</label>
                         </div>
                         <div class="checkContainer">
-                            <input type="checkbox" id="other" name="other">
+                            <input type="checkbox" id="other" value="Other" name="major">
                             <label for="other">Other</label>
                         </div>
                     </div>
