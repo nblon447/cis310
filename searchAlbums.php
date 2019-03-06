@@ -27,7 +27,7 @@ print '<header id="header">
 <div class="paneContainer">
 <div class="pane">
 <div class="searchContent">
-    <form id="surveyForm" action="./result.php"
+    <form id="surveyForm" action="./searchResults.php"
 	onsubmit="return isValid();"
     method="POST" enctype="text/plain">
 		<h2>Search Your Favorite Album!</h2>

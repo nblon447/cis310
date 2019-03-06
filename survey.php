@@ -14,7 +14,7 @@ print $page->getTopSection();
 print '<div class="content">
 <header id="header">
     <div>
-        <a class="link" href="./index.html">
+        <a class="link" href="./index.php">
             <h1 class="siteTitle">
                 CNMT Survey
             </h1>
