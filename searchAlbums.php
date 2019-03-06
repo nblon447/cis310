@@ -28,15 +28,15 @@ print '<header id="header">
 <div class="pane">
 <div class="searchContent">
     <form id="surveyForm" action="./searchResults.php"
-	onsubmit="return isValid();"
+	onsubmit="return isValidSearch();"
     method="POST" enctype="text/plain">
 		<h2>Search Your Favorite Album!</h2>
-            <span id="nullInputError">All fields are required.</span>
+            <span id="nullInputError">Please enter a search keyword.</span>
             <div class="question email">                 
                 <input type="text" id="search" name="search" autofocus>
                 <div class="after"></div>
             </div>
-			<div class="next formActions">
+	    <div class="next formActions">
                 <button class="btn btn__elevated" type="submit">SEARCH</button>
             </div>
         </form>
