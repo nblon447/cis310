@@ -74,10 +74,10 @@ print '<div class="content">
 
         </div>
         <div class="next">
-                <a class="link" href="./survey.php">
-                    <button class="btn btn__elevated forward">TAKE SURVEY</button>
-                </a>
-                <img alt="Next page arrow" class="next__icon" src="./assets/icons/baseline-navigate_next-24px.svg">
+            <form class="link" action="./Survey.php">
+				<button class="btn btn__elevated forward">TAKE SURVEY</button>
+				<img alt="Next page arrow" class="next__icon" src="./assets/icons/baseline-navigate_next-24px.svg">
+			</form>
         </div>
     </div>
 </div>
