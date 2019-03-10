@@ -38,10 +38,10 @@ print '<header id="header">
         <hr>
     </div>
     <div class="next">
-        <a class="link" href="./privacy.php">
+        <form class="link" action="./privacy.php">
             <button class="btn btn__elevated forward">BEGIN</button>
-        </a>
-        <img alt="Next page arrow" class="next__icon" src="./assets/icons/baseline-navigate_next-24px.svg">
+			<img alt="Next page arrow" class="next__icon" src="./assets/icons/baseline-navigate_next-24px.svg">
+        </form>
     </div>
 </div>
 </div>';
