@@ -9,11 +9,11 @@ $page->finalizeBottomSection();
 print $page->getTopSection();
 print '<header id="header">
 <div>
-    <a class="link" href="./index.php">
-        <h1 class="siteTitle">
-            Search
-        </h1>
-    </a>
+	<a class="link" href="./index.php">
+		<h1 class="siteTitle">
+			CNMT Survey
+		</h1>
+	</a>
 </div>
 <span class="flexSpace"></span>
 <nav>
