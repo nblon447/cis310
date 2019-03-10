@@ -21,11 +21,12 @@ print '<header id="header">
 </div>
 <span class="flexSpace"></span>
 <nav>
-<ul>
-<li><a class="link navLink" href="./privacy.php"><div class="btn btn__text">PRIVACY</div></a>
-</li>
-<li><a class="link navLink" href="./survey.php"><div class="btn btn__text">SURVEY</div></a></li>
-</ul>
+	<ul>
+		<li><a class="link navLink" href="./privacy.php"><div class="btn btn__text">PRIVACY</div></a>
+		</li>
+		<li><a class="link navLink" href="./survey.php"><div class="btn btn__text">SURVEY</div></a></li>
+		<li><a class="link navLink" href="./searchAlbums.php"><div class="btn btn__text">SEARCH</div></a></li>
+	</ul>
 </nav>
 </header>
 <div class="paneContainer">
@@ -34,9 +35,9 @@ print '<header id="header">
         <h2 class="homeContent__statement">Thank you for completing the survey!</h2>
     </div>
     <div class="next">
-        <a class="link" href="./index.php">
+		<form class="link" action="./index.php">
             <button class="btn btn__elevated forward">RETURN HOME</button>
-        </a>
+        </form>
     </div>
 </div>
 </div>';
