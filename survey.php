@@ -1,41 +1,37 @@
 <?php
-
 require_once("Template.php");
-
 $page = new Template("CMNT Survey");
 $page->addHeadElement('<link rel="stylesheet" href="./assets/styles/normalize.css">');
 $page->addHeadElement('<link rel="stylesheet" type="text/css" href="./assets/styles/styles.css">');
 $page->addHeadElement('<link href="https://fonts.googleapis.com/css?family=Krub|PT+Sans|Ubuntu" rel="stylesheet">');
 $page->finalizeTopSection();
 $page->finalizeBottomSection();
-
 print $page->getTopSection();
-
 print '<div class="content">
 <header id="header">
-    <div>
-        <a class="link" href="./index.html">
-            <h1 class="siteTitle">
-                CNMT Survey
-            </h1>
-        </a>
-    </div>
-    <span class="flexSpace"></span>
-    <nav>
-        <ul>
-                <li><a class="link navLink" href="./privacy.php"><div class="btn btn__text">PRIVACY</div></a></li>
-            <li><a class="link navLink" href="./survey.php"><div class="btn btn__text">SURVEY</div></a></li>
-		    <li><a class="link navLink" href="./searchAlbums.php"><div class="btn btn__text">SEARCH</div></a></li>
-        </ul>
-    </nav>
-    </header>
+<div>
+	<a class="link" href="./index.php">
+		<h1 class="siteTitle">
+			CNMT Survey
+		</h1>
+	</a>
+</div>
+<span class="flexSpace"></span>
+<nav>
+    <ul>
+        <li><a class="link navLink" href="./privacy.php"><div class="btn btn__text">PRIVACY</div></a></li>
+        <li><a class="link navLink" href="./survey.php"><div class="btn btn__text">SURVEY</div></a></li>
+		<li><a class="link navLink" href="./searchAlbums.php"><div class="btn btn__text">SEARCH</div></a></li>
+    </ul>
+</nav>
+</header>
 <div class="paneContainer">
     <div class="pane">
         <div class="surveyContent">
             <form id="surveyForm" action="./completed.php" 
             onreset="toggleError(false, \'nullInputError\');" 
             onsubmit="return isValid();" 
-            method="POST" enctype="text/plain">
+            method="POST">
                 <h2>UWSP Computing and New Media Technologies Survey</h2>
                 <span id="nullInputError">All fields are required.</span>
                 <div class="question email">
@@ -59,7 +55,6 @@ print '<div class="content">
                             <input type="checkbox" id="wdmd" value="WDMD" name="major">
                             <label for="wdmd">Web and Digital Media Development</label>
                         </div>
-
                         <div class="checkContainer">
                             <input type="checkbox" id="wd" value="WD" name="major">
                             <label for="wd">Web Development</label>
@@ -93,14 +88,12 @@ print '<div class="content">
                             <input type="radio" id="d" name="grade" value="d">
                             <label for="d">D</label>
                         </div>
-
                         <div class="radioContainer">
                             <input type="radio" id="f" name="grade" value="f">
                             <label for="f">F</label>
                         </div>
                     </div>
                 </div>
-
                 <div class="question">
                     <p>What is your favorite pizza topping:</p>
                     <div class="options">
@@ -140,6 +133,5 @@ print '<div class="content">
 </div>
 <script src="./assets/javascript/scripts.js"></script>
 </div>';
-
 print $page->getBottomSection();
 ?>
