@@ -35,7 +35,7 @@ print '<div class="content">
             <form id="surveyForm" action="./completed.php" 
             onreset="toggleError(false, \'nullInputError\');" 
             onsubmit="return isValid();" 
-            method="POST" enctype="text/plain">
+            method="POST">
                 <h2>UWSP Computing and New Media Technologies Survey</h2>
                 <span id="nullInputError">All fields are required.</span>
                 <div class="question email">
