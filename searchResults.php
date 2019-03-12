@@ -1,13 +1,26 @@
 <?php
 require_once("Template.php");
+require_once("DB.class.php");
 $json = file_get_contents("./assets/albumMocks.json");
-$mock = json_decode($json, true);
+//$mock = json_decode($json, true);
 
+$db = new DB();
 
-//  Lucas Db stuff here
+if (!$db->getConnStatus()) {
+  print "An error has occurred with connection\n";
+  exit;
+}
 
-// Lucas db end result
-$result = $mock["mockData"];
+$result = '';
+
+if (isset($_POST['search']))
+{
+    $name = $_POST['search'];
+}
+
+$query  = "SELECT * FROM albumInfo WHERE albumtitle = '$name' OR albumartist = '$name'"; 
+
+$result = $db->dbCall($query);
 
 $page = new Template("Search Results");
 $page->addHeadElement('<link rel="stylesheet" href="./assets/styles/normalize.css">');
@@ -55,7 +68,13 @@ print '<div class="content">
             </tr>
         </thead>
         <tbody>';
-            foreach ($result as $record) {
+		
+		if (empty($result)){
+			print "<h4> No Results Found! </h4>";
+		}
+		else {
+
+            foreach ((array) $result as $record) {
                 print "<tr>
                 <td>
                 {$record['albumartist']}
@@ -67,6 +86,7 @@ print '<div class="content">
                 {$record['albumlength']}
                 </td>";
             }
+		}
 print '</tbody>
         </table>
         </div>
