@@ -75,7 +75,11 @@ print '
 
         </div>
         <div class="next">
+<<<<<<< HEAD
 			<form class="link" action="./survey.php">
+=======
+			<form class="link" action="./Survey.php">
+>>>>>>> 04c888186affc3d39a89387dc4c33679c5e29354
 				<button class="btn btn__elevated forward">TAKE SURVEY</button>
 				<img alt="Next page arrow" class="next__icon" src="./assets/icons/baseline-navigate_next-24px.svg">
 			</form>

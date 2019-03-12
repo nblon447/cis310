@@ -29,7 +29,7 @@ print '<header id="header">
 <div class="searchContent">
     <form id="surveyForm" action="./searchResults.php"
 	onsubmit="return isValidSearch();"
-    method="POST" enctype="text/plain">
+    method="POST">
 		<h2>Search Your Favorite Album!</h2>
             <span id="nullInputError">Please enter a search keyword.</span>
             <div class="question email">                 

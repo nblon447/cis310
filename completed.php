@@ -19,6 +19,7 @@ if (!$db->getConnStatus()) {
 
 print $page->getTopSection();
 
+<<<<<<< HEAD
 $inputs = array('major','grade','pizza');
 $error = false;
 foreach($inputs as $field) {
@@ -48,15 +49,35 @@ $sql = "INSERT INTO survey (submittime, major, expectedgrade, favetopping, useri
 $db->dbCall($sql);
 
 print '
+=======
+print '<header id="header">
+<div>
+    <a class="link" href="./index.php">
+        <h1 class="siteTitle">
+            CNMT Survey
+        </h1>
+    </a>
+</div>
+<span class="flexSpace"></span>
+<nav>
+	<ul>
+		<li><a class="link navLink" href="./privacy.php"><div class="btn btn__text">PRIVACY</div></a>
+		</li>
+		<li><a class="link navLink" href="./survey.php"><div class="btn btn__text">SURVEY</div></a></li>
+		<li><a class="link navLink" href="./searchAlbums.php"><div class="btn btn__text">SEARCH</div></a></li>
+	</ul>
+</nav>
+</header>
+>>>>>>> 04c888186affc3d39a89387dc4c33679c5e29354
 <div class="paneContainer">
 <div class="pane">
 <div class="homeContent">
         <h2 class="homeContent__statement">Thank you for completing the survey!</h2>
     </div>
     <div class="next">
-        <a class="link" href="./index.php">
+		<form class="link" action="./index.php">
             <button class="btn btn__elevated forward">RETURN HOME</button>
-        </a>
+        </form>
     </div>
 </div>
 </div>';
