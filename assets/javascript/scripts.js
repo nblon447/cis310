@@ -1,8 +1,9 @@
 
 function isValid() {
-    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-    const radioGrade = document.querySelectorAll('input[name="grade"]');
-    const radioPizza = document.querySelectorAll('input[name="pizza"]');
+    var email = document.getElementById("email");
+    var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    var radioGrade = document.querySelectorAll('input[name="grade"]');
+    var radioPizza = document.querySelectorAll('input[name="pizza"]');
 
     if (email.value 
         && isNotNull(checkboxes) 
@@ -15,6 +16,8 @@ function isValid() {
 }
 
 function isValidSearch() {
+	var search = document.getElementById("search");
+	console.log(search);
 	if (search.value) {
 		return true;
 	}
@@ -23,7 +26,7 @@ function isValidSearch() {
 }
 
 function isNotNull(inputGroup) {
-    for(let i = 0; i < inputGroup.length; i++) {
+    for(var i = 0; i < inputGroup.length; i++) {
         if(inputGroup[i].checked) {
             return true;
         }

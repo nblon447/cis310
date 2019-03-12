@@ -28,13 +28,13 @@ print '<div class="content">
         </a>
     </div>
     <span class="flexSpace"></span>
-    <nav>
-        <ul>
-            <li><a class="link navLink" href="./privacy.php"><div class="btn btn__text">PRIVACY</div></a></li>
-            <li><a class="link navLink" href="./survey.php"><div class="btn btn__text">SURVEY</div></a></li>
-            <li><a class="link navLink" href="./search.php"><div class="btn btn__text">SEARCH</div></a></li>
-          </ul>
-    </nav>
+<nav>
+	<ul>
+		<li><a class="link navLink" href="./privacy.php"><div class="btn btn__text">PRIVACY</div></a></li>
+		<li><a class="link navLink" href="./survey.php"><div class="btn btn__text">SURVEY</div></a></li>
+		<li><a class="link navLink" href="./searchAlbums.php"><div class="btn btn__text">SEARCH</div></a></li>
+	</ul>
+</nav>
 </header>
 <div class="paneContainer">
     <div class="pane">
