@@ -13,10 +13,24 @@ if (!$db->getConnStatus()) {
 
 $result = '';
 
-if (isset($_POST['search']))
-{
-    $name = $_POST['search'];
+$inputs = array('search');
+$error = false;
+
+foreach($inputs as $field) {
+	if(!isset($_POST[$field])) {
+		$error = true;
+	}
+	if(empty($_POST[$field])) {
+		$error = true;
+	}
 }
+
+if($error) {
+	print "<p>Search field is required. Please try again.</p>";
+} else {
+	$name = filter_var($_POST['search'], FILTER_SANITIZE_STRING);
+}
+
 
 $query  = "SELECT * FROM albumInfo WHERE albumtitle = '$name' OR albumartist = '$name'"; 
 
