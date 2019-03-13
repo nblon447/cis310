@@ -1,6 +1,6 @@
 <?php
-require_once("Template.php");
-require_once("DB.class.php");
+require_once("./assets/Template.php");
+require_once("./assets/DB.class.php");
 $json = file_get_contents("./assets/albumMocks.json");
 //$mock = json_decode($json, true);
 
@@ -12,6 +12,7 @@ if (!$db->getConnStatus()) {
 }
 
 $result = '';
+$no_result_msg = "<h4> No Results Found! </h4>";
 
 $inputs = array('search');
 $error = false;
@@ -24,17 +25,6 @@ foreach($inputs as $field) {
 		$error = true;
 	}
 }
-
-if($error) {
-	print "<p>Search field is required. Please try again.</p>";
-} else {
-	$name = filter_var($_POST['search'], FILTER_SANITIZE_STRING);
-}
-
-
-$query  = "SELECT * FROM albumInfo WHERE albumtitle = '$name' OR albumartist = '$name'"; 
-
-$result = $db->dbCall($query);
 
 $page = new Template("Search Results");
 $page->addHeadElement('<link rel="stylesheet" href="./assets/styles/normalize.css">');
@@ -56,11 +46,11 @@ print '<div class="content">
     </div>
     <span class="flexSpace"></span>
 <nav>
-	<ul>
-		<li><a class="link navLink" href="./privacy.php"><div class="btn btn__text">PRIVACY</div></a></li>
-		<li><a class="link navLink" href="./survey.php"><div class="btn btn__text">SURVEY</div></a></li>
-		<li><a class="link navLink" href="./searchAlbums.php"><div class="btn btn__text">SEARCH</div></a></li>
-	</ul>
+    <ul>
+        <li><a class="link navLink" href="./privacy.php"><div class="btn btn__text">PRIVACY</div></a></li>
+        <li><a class="link navLink" href="./survey.php"><div class="btn btn__text">SURVEY</div></a></li>
+        <li><a class="link navLink" href="./searchAlbums.php"><div class="btn btn__text">SEARCH</div></a></li>
+    </ul>
 </nav>
 </header>
 <div class="paneContainer">
@@ -82,25 +72,35 @@ print '<div class="content">
             </tr>
         </thead>
         <tbody>';
-		
-		if (empty($result)){
-			print "<h4> No Results Found! </h4>";
-		}
-		else {
 
-            foreach ((array) $result as $record) {
-                print "<tr>
-                <td>
-                {$record['albumartist']}
-                </td>
-                <td>
-                {$record['albumtitle']}
-                </td>
-                <td class='lengthData'>
-                {$record['albumlength']}
-                </td>";
-            }
-		}
+if($error != true) {
+
+	$name = filter_var($_POST['search'], FILTER_SANITIZE_STRING);
+    $query  = "SELECT * FROM album WHERE albumtitle = '$name' OR albumartist = '$name'"; 
+    $result = $db->dbCall($query);
+		
+	if (empty($result)){
+		print $no_result_msg;
+	}
+	else {
+        foreach ((array) $result as $record) {
+            print "<tr>
+            <td>
+            {$record['albumartist']}
+            </td>
+            <td>
+            {$record['albumtitle']}
+            </td>
+            <td class='lengthData'>
+            {$record['albumlength']}
+            </td>";
+        }
+    }
+
+} else {
+	print $no_result_msg;  
+}
+
 print '</tbody>
         </table>
         </div>

@@ -1,5 +1,5 @@
 <?php
-require_once("Template.php");
+require_once("./assets/Template.php");
 $page = new Template("CMNT Survey");
 $page->addHeadElement('<link rel="stylesheet" href="./assets/styles/normalize.css">');
 $page->addHeadElement('<link rel="stylesheet" type="text/css" href="./assets/styles/styles.css">');
