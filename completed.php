@@ -1,7 +1,7 @@
 <?php
 
-require_once("Template.php");
-require_once("DB.class.php");
+require_once("./assets/Template.php");
+require_once("./assets/DB.class.php");
 
 $page = new Template("CMNT Survey");
 $page->addHeadElement('<link rel="stylesheet" href="./assets/styles/normalize.css">');
