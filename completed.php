@@ -33,8 +33,11 @@ if($error) {
 	print "<p>All form fields required. Please try again.</p>";
 } else {
 	$major = filter_var($_POST["major"], FILTER_SANITIZE_STRING);
+	$major = $db->dbEsc($major);
 	$grade = filter_var($_POST["grade"], FILTER_SANITIZE_STRING);
+	$grade = $db->dbEsc($grade);
 	$pizza = filter_var($_POST["pizza"], FILTER_SANITIZE_STRING);
+	$pizza = $db->dbEsc($pizza);
 }
 
 if(isset($_SERVER['REMOTE_ADDR'])) {
