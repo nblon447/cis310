@@ -43,8 +43,10 @@ print '<div class="content">
                     <!--<label for="email">email@domain.com</label>-->
                     <div class="after"></div>
                 </div>
+		<div id="login_btn_div">
 				<button class="btn btn__elevated login_btn" type="submit" >Login</button>
-            </form>
+            	</div>
+	    </form>
         </div>
     </div>
 </div>
@@ -52,3 +54,4 @@ print '<div class="content">
 </div>';
 print $page->getBottomSection();
 ?>
+
