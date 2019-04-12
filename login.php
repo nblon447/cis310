@@ -72,7 +72,7 @@ if(isset($_POST["username"]) && isset($_POST["password"])){
 if (isset($_SESSION['user'])) {
     print '<p>LOGGED IN VIEW PLACEHOLDER USER/ROLE:  '. $_SESSION['user'] . ' / ' . $_SESSION['role'] . '</p>';
 } else {
-    print '<form id="loginForm" action="./login.php"  
+    print '<form id="loginForm" name="login" action="./login.php"  
                 onsubmit="return LoginValidation();" 
                 method="POST">
                     <div class="question login_element">
