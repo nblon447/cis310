@@ -43,3 +43,24 @@ function toggleError(show, elementRef) {
         document.getElementById(elementRef).style.display = 'none';
     }
 }
+
+
+
+/* __ LOGIN PAGE VALIDATION __ */
+
+function LoginValidation() {
+	var user = document.login.username;
+	var pass = document.login.password;
+	
+	if (user == "") {
+		alert ("Please enter your username.");
+		return false;
+	}
+	
+	
+	if (pass == "") {
+		alert ("Please enter your password.");
+		return false;
+	}
+	
+}
