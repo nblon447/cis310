@@ -1,4 +1,20 @@
 <?php
+session_start();
+
+$User = '';
+$Loggedin;
+$_SESSION['Logout'] = '<li><a class="link navLink" href="./logout.php"><div class="btn btn__text">Logout</div></a></li>';
+$_SESSION['Login'] = '<li><a class="link navLink" href="./login.php"><div class="btn btn__text">LOGIN</div></a></li>';
+
+if (isset($_SESSION['Loggedin']))
+{
+$User = "Welcome " . $_SESSION['user'];
+$Loggedin = $_SESSION['Logout'];
+}
+else
+{
+	$Loggedin = $_SESSION['Login'];
+}
 
 require_once("./assets/Template.php");
 
@@ -23,10 +39,12 @@ print '
 </div>
 <span class="flexSpace"></span>	
 <nav>
-	<ul>
-		<li><a class="link navLink" href="./privacy.php"><div class="btn btn__text">PRIVACY</div></a></li>
-		<li><a class="link navLink" href="./survey.php"><div class="btn btn__text">SURVEY</div></a></li>
-		<li><a class="link navLink" href="./searchAlbums.php"><div class="btn btn__text">SEARCH</div></a></li>
+	<ul>';
+		echo $Loggedin;
+		echo $User;
+print '<li><a class="link navLink" href="./privacy.php"><div class="btn btn__text">PRIVACY</div></a></li>
+	<li><a class="link navLink" href="./survey.php"><div class="btn btn__text">SURVEY</div></a></li>
+	   <li><a class="link navLink" href="./searchAlbums.php"><div class="btn btn__text">SEARCH</div></a></li>
 	</ul>
 </nav>
 </header>

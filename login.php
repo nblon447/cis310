@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once("./assets/Template.php");
 $page = new Template("CMNT Survey");
 $page->addHeadElement('<link rel="stylesheet" href="./assets/styles/normalize.css">');
@@ -28,9 +29,7 @@ print '<div class="content">
 <div class="paneContainer">
     <div class="pane">
         <div class="loginContent">
-            <form id="loginForm" action="./welcome.php"  
-            onsubmit="return LoginValidation();" 
-            method="POST">
+            <form id="loginForm" action="./welcome.php" onsubmit="return LoginValidation();" method="POST">
 				<div class="question login_element">
                 <p>Username:</p>                    
                     <input type="text" id="username" name="username" autofocus>
@@ -39,7 +38,7 @@ print '<div class="content">
                 </div>
 				<div class="question login_element">
                 <p>Password:</p>                    
-                    <input type="password" id="email" name="email" autofocus>
+                    <input type="password" id="passwd" name="passwd" autofocus>
                     <!--<label for="email">email@domain.com</label>-->
                     <div class="after"></div>
                 </div>
@@ -52,6 +51,7 @@ print '<div class="content">
 </div>
 <script src="./assets/javascript/scripts.js"></script>
 </div>';
+
 print $page->getBottomSection();
 ?>
 

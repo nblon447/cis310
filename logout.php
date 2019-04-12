@@ -1,10 +1,9 @@
 <?php
-
+session_start();
 require_once("./assets/Template.php");
 
 $User='';
-$Passwd='';
-$User = $_POST['username'];
+$User = $_SESSION['user'];
 
 $page = new Template("CMNT Survey");
 $page->addHeadElement('<link rel="stylesheet" href="./assets/styles/normalize.css">');
@@ -35,7 +34,7 @@ print '<header id="header">
 <div class="paneContainer">
 <div class="pane">
     <div class="homeContent">
-        <h2 class="homeContent__statement">'; echo "Welcome " . $User; 
+        <h2 class="homeContent__statement">'; echo "Goodbye " . $User; 
 print'</h2>
         <hr>
     </div>
@@ -48,13 +47,6 @@ print'</h2>
 </div>
 </div>';
 
-session_start();
-$_SESSION['user'] = $User;
-$_SESSION['Loggedin'];
-if (isset($_SESSION['user']))
-{
-$_SESSION['Loggedin'] = 1;
-}
-
+session_destroy();
 print $page->getBottomSection();
 ?>
