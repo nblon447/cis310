@@ -2,8 +2,15 @@
 session_start();
 require_once("./assets/Template.php");
 
-$User='';
-$User = $_SESSION['user'];
+// Unset the session vars we created
+unset($_SESSION['role']);
+unset($_SESSION['user']);
+
+$_SESSION = array();
+# Destroy all
+session_destroy();
+# Close session before redirecting user
+session_write_close();
 
 $page = new Template("CMNT Survey");
 $page->addHeadElement('<link rel="stylesheet" href="./assets/styles/normalize.css">');
@@ -34,7 +41,7 @@ print '<header id="header">
 <div class="paneContainer">
 <div class="pane">
     <div class="homeContent">
-        <h2 class="homeContent__statement">'; echo "Goodbye " . $User; 
+        <h2 class="homeContent__statement">'; echo "Goodbye "; 
 print'</h2>
         <hr>
     </div>
@@ -47,6 +54,5 @@ print'</h2>
 </div>
 </div>';
 
-session_destroy();
 print $page->getBottomSection();
 ?>
