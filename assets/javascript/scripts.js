@@ -48,19 +48,16 @@ function toggleError(show, elementRef) {
 
 /* __ LOGIN PAGE VALIDATION __ */
 
-function LoginValidation() {
-	var user = document.login.username;
-	var pass = document.login.password;
-	
-	if (user == "") {
-		alert ("Please enter your username.");
-		return false;
-	}
-	
-	
-	if (pass == "") {
-		alert ("Please enter your password.");
-		return false;
-	}
-	
+function validateLogin() {
+  var x = document.forms["loginForm"]["username"].value;
+  var y = document.forms["loginForm"]["password"].value;
+  
+  if (x == "") {
+    alert("Please enter your username.");
+    return false;
+  }
+  if (y == "") {
+    alert("Please enter your password.");
+    return false;
+  }
 }
