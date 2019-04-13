@@ -14,6 +14,7 @@ $page = new Template("Login");
 $page->addHeadElement('<link rel="stylesheet" href="./assets/styles/normalize.css">');
 $page->addHeadElement('<link rel="stylesheet" type="text/css" href="./assets/styles/styles.css">');
 $page->addHeadElement('<link href="https://fonts.googleapis.com/css?family=Krub|PT+Sans|Ubuntu" rel="stylesheet">');
+$page->addHeadElement('<script src="./assets/javascript/scripts.js"></script>');
 $page->finalizeTopSection();
 $page->finalizeBottomSection();
 print $page->getTopSection();
@@ -72,24 +73,27 @@ if(isset($_POST["username"]) && isset($_POST["password"])){
 if (isset($_SESSION['user'])) {
     print '<p>LOGGED IN VIEW PLACEHOLDER USER/ROLE:  '. $_SESSION['user'] . ' / ' . $_SESSION['role'] . '</p>';
 } else {
-    print '<form id="loginForm" name="login" action="./login.php"  
-                onsubmit="return LoginValidation();" 
-                method="POST">
-                    <div class="question login_element">
-                    <p>Username:</p>                    
-                        <input type="text" id="username" name="username" autofocus>
-                        <label for="email">email@domain.com</label>
-                        <div class="after"></div>
-                    </div>
-                    <div class="question login_element">
-                    <p>Password:</p>                    
-                        <input type="password" id="password" name="password" autofocus>
-                        <div class="after"></div>
-                    </div>
-                    <div id="login_btn_div">
-                        <button class="btn btn__elevated login_btn" type="submit" >Login</button>
-                    </div>
-        </form>';
+
+//
+
+   print '
+		<form name="loginForm"  onsubmit="return validateLogin()" action="./login.php" method="post"  class="question login_element">
+			
+			Username: <input type="text" name="username" id="username" autofocus >
+			<div class="after"></div>
+			
+			<br />
+			
+			Password: <input type="text" name="password" autofocus >
+			<div class="after"></div>
+			
+			<br />
+			
+			
+			<input type="submit" value="LOGIN" id="login_btn_div" class="btn btn__elevated login_btn" >
+			
+		</form>	
+		';
 }
 '</div>
 </div>
