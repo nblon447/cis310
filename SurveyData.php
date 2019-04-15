@@ -4,21 +4,6 @@ require_once("assets/DB.class.php");
 require_once("assets/Template.php");
 session_start();
 
-$User = '';
-$Loggedin;
-$_SESSION['Logout'] = '<li><a class="link navLink" href="./logout.php"><div class="btn btn__text">Logout</div></a></li>';
-$_SESSION['Login'] = '<li><a class="link navLink" href="./login.php"><div class="btn btn__text">LOGIN</div></a></li>';
-
-if (isset($_SESSION['Loggedin']))
-{
-$User = "Welcome " . $_SESSION['user'];
-$Loggedin = $_SESSION['Logout'];
-}
-else
-{
-	$Loggedin = $_SESSION['Login'];
-}
-
 $page = new Template("Survey Data");
 $page->addHeadElement('<link rel="stylesheet" href="./assets/styles/normalize.css">');
 $page->addHeadElement('<link rel="stylesheet" type="text/css" href="./assets/styles/styles.css">');
@@ -52,8 +37,16 @@ print '<header id="header">
 <span class="flexSpace"></span>
 <nav>
     <ul>';
-		echo $Loggedin;
-		echo $User;
+        if (isset($_SESSION['role']))
+        {
+            echo $User = "Welcome " . $_SESSION['user'];
+            echo '<li><a class="link navLink" href="./logout.php"><div class="btn btn__text">Logout</div></a></li>';
+        }
+        else
+        {
+            echo '<li><a class="link navLink" href="./login.php"><div class="btn btn__text">Login</div></a></li>';
+        }
+
 print  '<li><a class="link navLink" href="./privacy.php"><div class="btn btn__text">PRIVACY</div></a></li>
         <li><a class="link navLink" href="./survey.php"><div class="btn btn__text">SURVEY</div></a></li>
 		<li><a class="link navLink" href="./searchAlbums.php"><div class="btn btn__text">SEARCH</div></a></li>

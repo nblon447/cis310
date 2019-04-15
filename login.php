@@ -1,8 +1,10 @@
 <?php
+
 require_once("assets/DB.class.php");
 require_once("assets/Template.php");
 
 $db = new DB();
+
 session_start();
 
 if (!$db->getConnStatus()) {
@@ -73,9 +75,6 @@ if(isset($_POST["username"]) && isset($_POST["password"])){
 if (isset($_SESSION['user'])) {
     print '<p>LOGGED IN VIEW PLACEHOLDER USER/ROLE:  '. $_SESSION['user'] . ' / ' . $_SESSION['role'] . '</p>';
 } else {
-
-//
-
    print '
 		<form name="loginForm"  onsubmit="return validateLogin()" action="./login.php" method="post"  class="question login_element">
 			
