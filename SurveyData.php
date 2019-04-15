@@ -11,8 +11,6 @@ $page->addHeadElement('<link href="https://fonts.googleapis.com/css?family=Krub|
 $page->finalizeTopSection();
 $page->finalizeBottomSection();
 
-session_start();
-
 $db = new DB();
 
 if (!$db->getConnStatus()) {
@@ -25,7 +23,6 @@ $query = "SELECT * FROM survey";
 $result = $db->dbCall($query);
 
 print $page->getTopSection();
-if ($_SESSION['role'] = 'admin') {
 print '<header id="header">
 <div>
 	<a class="link" href="./index.php">
@@ -53,6 +50,7 @@ print  '<li><a class="link navLink" href="./privacy.php"><div class="btn btn__te
     </ul>
 </nav>
 </header>';
+if ($_SESSION['role'] = 'admin') {
 print '<br />';
 print '<br />';
 print '<br />';
@@ -73,26 +71,13 @@ foreach($result as $resultArray) {
 	print "</tr>";
 }
 print "</table>";
-} else {
-    print '<header id="header">
-<div>
-	<a class="link" href="./index.php">
-		<h1 class="siteTitle">
-			CNMT Survey
-		</h1>
-	</a>
-</div>
-<span class="flexSpace"></span>
-<nav>
-    <ul>
-        <li><a class="link navLink" href="./privacy.php"><div class="btn btn__text">PRIVACY</div></a></li>
-        <li><a class="link navLink" href="./survey.php"><div class="btn btn__text">SURVEY</div></a></li>
-		<li><a class="link navLink" href="./searchAlbums.php"><div class="btn btn__text">SEARCH</div></a></li>
-    </ul>
-</nav>
-</header>
-<br />
-<br />
-<h3>You do not have permission to view this page!</h3>';
+} else if ($_SESSION['role'] = 'user') {
+print '<br />
+	<br />
+	<h3>You do not have permission to view this page!</h3>';
+} else if (!isset($_SESSION['role'])) {
+	print '<br />
+	<br />
+	<h3>Please log in to view this page!</h3>';
 }
 print $page->getBottomSection();
