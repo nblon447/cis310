@@ -53,11 +53,11 @@ function validateLogin() {
   var y = document.forms["loginForm"]["password"].value;
   
   if (x == "") {
-    alert("Please enter your username.");
+    toggleError(true,'nullInputError');
     return false;
   }
   if (y == "") {
-    alert("Please enter your password.");
+    toggleError(true,'nullInputError');
     return false;
   }
 }

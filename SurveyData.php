@@ -34,9 +34,9 @@ print '<header id="header">
 <span class="flexSpace"></span>
 <nav>
     <ul>';
-        if (isset($_SESSION['role']))
+        if (isset($_SESSION['user']))
         {
-            echo $User = "Welcome " . $_SESSION['user'];
+            echo "Welcome " . $_SESSION['user'];
             echo '<li><a class="link navLink" href="./logout.php"><div class="btn btn__text">Logout</div></a></li>';
         }
         else
@@ -50,7 +50,7 @@ print  '<li><a class="link navLink" href="./privacy.php"><div class="btn btn__te
     </ul>
 </nav>
 </header>';
-if ($_SESSION['role'] = 'admin') {
+if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
 print '<br />';
 print '<br />';
 print '<br />';
@@ -71,7 +71,7 @@ foreach($result as $resultArray) {
 	print "</tr>";
 }
 print "</table>";
-} else if ($_SESSION['role'] = 'user') {
+} else if (isset($_SESSION['role']) && $_SESSION['role'] == 'user') {
 print '<br />
 	<br />
 	<h3>You do not have permission to view this page!</h3>';
