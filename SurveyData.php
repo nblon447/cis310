@@ -11,7 +11,7 @@ $page->finalizeTopSection();
 $page->finalizeBottomSection();
 
 
-if(isset($_SESSION['role']) && $_SESSION['role'] == 'admin'){
+if(isset($_SESSION['roles']) && ($_SESSION['roles'] == 'admin' || $_SESSION['roles'] == 'admin and user')){
 
 
     $url = "cnmtsrv2.uwsp.edu/~mbana641/sprint1/backend/surveydata-database.php";
@@ -56,7 +56,7 @@ print  '<li><a class="link navLink" href="./privacy.php"><div class="btn btn__te
     </ul>
 </nav>
 </header>';
-if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
+if (isset($_SESSION['roles']) && ($_SESSION['roles'] == 'admin' || $_SESSION['roles'] == 'admin and user')) {
 print '<br />';
 print '<br />';
 print '<br />';
@@ -77,11 +77,11 @@ foreach($result as $resultArray) {
 	print "</tr>";
 }
 print "</table>";
-} else if (isset($_SESSION['role']) && $_SESSION['role'] == 'user') {
+} else if (isset($_SESSION['roles']) && $_SESSION['roles'] == 'user') {
 print '<br />
 	<br />
 	<h2>You do not have permission to view this page!</h2>';
-} else if (!isset($_SESSION['role'])) {
+} else if (!isset($_SESSION['roles'])) {
 	print '<br />
 	<br />
 	<h2>Please log in to view this page!</h2>';
