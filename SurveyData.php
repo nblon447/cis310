@@ -14,7 +14,7 @@ $page->finalizeBottomSection();
 if(isset($_SESSION['roles']) && ($_SESSION['roles'] == 'admin' || $_SESSION['roles'] == 'admin and user')){
 
 
-    $url = "cnmtsrv2.uwsp.edu/~mbana641/sprint1/backend/surveydata-database.php";
+    $url = "cnmtsrv2.uwsp.edu/~nblon447/sprint3/backend/surveydata-database.php";
     $ch = curl_init();
 	
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
