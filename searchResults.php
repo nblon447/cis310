@@ -5,28 +5,39 @@ $json = file_get_contents("./assets/albumMocks.json");
 //$mock = json_decode($json, true);
 session_start();
 
-$db = new DB();
+if(isset($_POST["search"])){
+	$ferda = $_POST['search'];
+    $dataJson = json_encode($ferda);
+    $postString = "data=" . urlencode($dataJson);
+    $contentLength = strlen($postString);
 
-if (!$db->getConnStatus()) {
-  print "An error has occurred with connection\n";
-  exit;
+    $header = array(
+    'Content-Type: application/x-www-form-urlencoded',
+    'Content-Length: ' . $contentLength
+    );
+
+    $url = "cnmtsrv2.uwsp.edu/~lsode062/sprint1/backend/albumdata-database.php";
+    $ch = curl_init();
+
+    curl_setopt($ch,
+        CURLOPT_CUSTOMREQUEST, "POST");
+    curl_setopt($ch,
+        CURLOPT_POSTFIELDS, $postString);
+    curl_setopt($ch,
+        CURLOPT_HTTPHEADER, $header);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_URL, $url);
+
+    $returnData = curl_exec($ch);
+    $response = json_decode($returnData, true);
+
+    curl_close($ch);
+} else {
+	echo "<h4>No Results!</h4>";
 }
-
-$result = '';
-$no_result_msg = "<h4> No Results Found! </h4>";
-
-$inputs = array('search');
-$error = false;
-
-foreach($inputs as $field) {
-	if(!isset($_POST[$field])) {
-		$error = true;
-	}
-	if(empty($_POST[$field])) {
-		$error = true;
-	}
+if (empty($response)){
+	print "No Results!";
 }
-
 $page = new Template("Search Results");
 $page->addHeadElement('<link rel="stylesheet" href="./assets/styles/normalize.css">');
 $page->addHeadElement('<link rel="stylesheet" type="text/css" href="./assets/styles/styles.css">');
@@ -86,32 +97,12 @@ print  '<li><a class="link navLink" href="./privacy.php"><div class="btn btn__te
         </thead>
         <tbody>';
 
-if($error != true) {
-
-	$name = filter_var($_POST['search'], FILTER_SANITIZE_STRING);
-    $query  = "SELECT * FROM album WHERE albumtitle = '$name' OR albumartist = '$name'"; 
-    $result = $db->dbCall($query);
-		
-	if (empty($result)){
-		print $no_result_msg;
+foreach($response as $albums) {
+	print "<tr>";
+	foreach($albums as $key => $album) {
+		print "<td>".$album."</td>";
 	}
-	else {
-        foreach ((array) $result as $record) {
-            print "<tr>
-            <td>
-            {$record['albumartist']}
-            </td>
-            <td>
-            {$record['albumtitle']}
-            </td>
-            <td class='lengthData'>
-            {$record['albumlength']}
-            </td>";
-        }
-    }
-
-} else {
-	print $no_result_msg;  
+	print "</tr>";
 }
 
 print '</tbody>
