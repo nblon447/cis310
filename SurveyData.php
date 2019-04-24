@@ -1,6 +1,5 @@
 <?php
 
-require_once("assets/DB.class.php");
 require_once("assets/Template.php");
 session_start();
 
@@ -11,16 +10,23 @@ $page->addHeadElement('<link href="https://fonts.googleapis.com/css?family=Krub|
 $page->finalizeTopSection();
 $page->finalizeBottomSection();
 
-$db = new DB();
 
-if (!$db->getConnStatus()) {
-  print "An error has occurred with connection\n";
-  exit;
+if(isset($_SESSION['roles']) && ($_SESSION['roles'] == 'admin' || $_SESSION['roles'] == 'admin and user')){
+
+
+    $url = "cnmtsrv2.uwsp.edu/~nblon447/sprint3/backend/surveydata-database.php";
+    $ch = curl_init();
+	
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_URL, $url);
+
+    $returnData = curl_exec($ch);
+	
+    $result = json_decode($returnData, true);
+
+    curl_close($ch);
 }
 
-$query = "SELECT * FROM survey";
-
-$result = $db->dbCall($query);
 
 print $page->getTopSection();
 print '<header id="header">
@@ -50,7 +56,7 @@ print  '<li><a class="link navLink" href="./privacy.php"><div class="btn btn__te
     </ul>
 </nav>
 </header>';
-if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
+if (isset($_SESSION['roles']) && ($_SESSION['roles'] == 'admin' || $_SESSION['roles'] == 'admin and user')) {
 print '<br />';
 print '<br />';
 print '<br />';
@@ -71,13 +77,13 @@ foreach($result as $resultArray) {
 	print "</tr>";
 }
 print "</table>";
-} else if (isset($_SESSION['role']) && $_SESSION['role'] == 'user') {
+} else if (isset($_SESSION['roles']) && $_SESSION['roles'] == 'user') {
 print '<br />
 	<br />
-	<h3>You do not have permission to view this page!</h3>';
-} else if (!isset($_SESSION['role'])) {
+	<h2>You do not have permission to view this page!</h2>';
+} else if (!isset($_SESSION['roles'])) {
 	print '<br />
 	<br />
-	<h3>Please log in to view this page!</h3>';
+	<h2>Please log in to view this page!</h2>';
 }
 print $page->getBottomSection();
