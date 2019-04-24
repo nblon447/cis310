@@ -1,4 +1,4 @@
-# Sprint2
+# Sprint3
 CIS 310 - Sprint Team
 
 Deployed at 
