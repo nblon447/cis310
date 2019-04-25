@@ -11,10 +11,10 @@ $page->finalizeTopSection();
 $page->finalizeBottomSection();
 
 
-if(isset($_SESSION['roles']) && ($_SESSION['roles'] == 'admin' || $_SESSION['roles'] == 'admin and user')){
+if (isset($_SESSION['roles']) && (in_array('admin', $_SESSION['roles']))) {
 
 
-    $url = "cnmtsrv2.uwsp.edu/~nblon447/sprint3/backend/surveydata-database.php";
+    $url = "cnmtsrv2.uwsp.edu/~mbana641/sprint1/backend/surveydata-database.php";
     $ch = curl_init();
 	
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -56,7 +56,7 @@ print  '<li><a class="link navLink" href="./privacy.php"><div class="btn btn__te
     </ul>
 </nav>
 </header>';
-if (isset($_SESSION['roles']) && ($_SESSION['roles'] == 'admin' || $_SESSION['roles'] == 'admin and user')) {
+if (isset($_SESSION['roles']) && (in_array('admin', $_SESSION['roles']))) {
 print '<br />';
 print '<br />';
 print '<br />';
@@ -77,7 +77,7 @@ foreach($result as $resultArray) {
 	print "</tr>";
 }
 print "</table>";
-} else if (isset($_SESSION['roles']) && $_SESSION['roles'] == 'user') {
+} else if (isset($_SESSION['roles']) && (!in_array('admin', $_SESSION['roles']))) {
 print '<br />
 	<br />
 	<h2>You do not have permission to view this page!</h2>';
