@@ -77,7 +77,7 @@ foreach($result as $resultArray) {
 	print "</tr>";
 }
 print "</table>";
-} else if (isset($_SESSION['roles']) && (!in_array('admin', $_SESSION['roles']))) {
+} else if (isset($_SESSION['roles']) && (in_array('admin', $_SESSION['roles']) == false)) {
 print '<br />
 	<br />
 	<h2>You do not have permission to view this page!</h2>';
