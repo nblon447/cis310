@@ -28,11 +28,11 @@ print '
         if (isset($_SESSION['roles']))
         {
             echo $User = "Welcome " . $_SESSION['user'];
-            echo '<li><a class="link navLink" href="./logout.php"><div class="btn btn__text">Logout</div></a></li>';
+            echo '<li><a class="link navLink" href="./logout.php"><div class="btn btn__text">LOUGOUT</div></a></li>';
         }
         else
         {
-            echo '<li><a class="link navLink" href="./login.php"><div class="btn btn__text">Login</div></a></li>';
+            echo '<li><a class="link navLink" href="./login.php"><div class="btn btn__text">LOGIN</div></a></li>';
         }
 		if (isset($_SESSION['roles']) && (in_array('admin', $_SESSION['roles']))) {
                 print '<li><a class="link navLink" href="./SurveyData.php"><div class="btn btn__text">DATA</div></a></li>';

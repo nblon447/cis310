@@ -43,11 +43,11 @@ print '<header id="header">
         if (isset($_SESSION['user']))
         {
             echo "Welcome " . $_SESSION['user'];
-            echo '<li><a class="link navLink" href="./logout.php"><div class="btn btn__text">Logout</div></a></li>';
+            echo '<li><a class="link navLink" href="./logout.php"><div class="btn btn__text">LOGOUT</div></a></li>';
         }
         else
         {
-            echo '<li><a class="link navLink" href="./login.php"><div class="btn btn__text">Login</div></a></li>';
+            echo '<li><a class="link navLink" href="./login.php"><div class="btn btn__text">LOGIN</div></a></li>';
         }
 
 print  '<li><a class="link navLink" href="./privacy.php"><div class="btn btn__text">PRIVACY</div></a></li>
