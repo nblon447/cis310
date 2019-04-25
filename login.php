@@ -41,7 +41,7 @@ if(isset($_POST["username"]) && isset($_POST["password"])){
     if (!empty($response)) {        
         if ($response['status'] == 'success') {
             $_SESSION['user'] = $response['user'];
-            $_SESSIONS['roles'] = $response['roles'];
+            $_SESSION['roles'] = $response['roles'];
         } else {
             $userMessage = $response['message'];
         }
