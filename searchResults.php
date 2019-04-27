@@ -6,8 +6,8 @@ $json = file_get_contents("./assets/albumMocks.json");
 session_start();
 
 if(isset($_POST["search"])){
-	$ferda = $_POST['search'];
-    $dataJson = json_encode($ferda);
+	$albums = $_POST['search'];
+    $dataJson = json_encode($albums);
     $postString = "data=" . urlencode($dataJson);
     $contentLength = strlen($postString);
 
@@ -29,7 +29,7 @@ if(isset($_POST["search"])){
     curl_setopt($ch, CURLOPT_URL, $url);
 
     $returnData = curl_exec($ch);
-    $response = json_decode($returnData, true);
+    $result = json_decode($returnData, true);
 
     curl_close($ch);
 } else {
@@ -93,11 +93,14 @@ print  '<li><a class="link navLink" href="./privacy.php"><div class="btn btn__te
                 <th>
                     Album Length (minutes)
                 </th>
+				<th>
+                    Purchase Album
+                </th>
             </tr>
         </thead>
         <tbody>';
 
-foreach($response as $albums) {
+foreach($result as $albums) {
 	print "<tr>";
 	foreach($albums as $key => $album) {
 		print "<td>".$album."</td>";

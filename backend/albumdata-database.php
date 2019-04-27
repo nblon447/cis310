@@ -1,8 +1,6 @@
 <?php 
 require_once("../assets/DB.class.php");
-$response = [];
 $postData = json_decode($_POST['data'], true);
-echo "ferda";
 if(isset($postData["search"])){
     $db = new DB();
     if (!$db->getConnStatus()) {
@@ -13,10 +11,9 @@ if(isset($postData["search"])){
     $album = filter_var($postData['search'], FILTER_SANITIZE_STRING);
     $album = $db->dbEsc($album);
 
-    $query  = "SELECT * FROM album WHERE albumtitle = '$album' OR albumartist = '$album'"; ;
-	echo "ferda";
-    $response = $db->dbCall($query);
-    print json_encode($response, true);
+    $query  = "SELECT * FROM album WHERE albumtitle = '$album' OR albumartist = '$album'";
+    $result = $db->dbCall($query);
+    print json_encode($result, true);
     }
 
 }
