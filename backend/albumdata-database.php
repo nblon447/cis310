@@ -18,4 +18,5 @@ if(isset($postData['search']){
     $albumResults = $db->dbCall($query);
 	print json_encode($albumResults, true);
 }
+//
 ?>
