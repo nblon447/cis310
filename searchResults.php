@@ -5,9 +5,8 @@ $json = file_get_contents("./assets/albumMocks.json");
 //$mock = json_decode($json, true);
 session_start();
 
-if(isset($_POST["search"])){
-	$albums = $_POST['search'];
-    $dataJson = json_encode($albums);
+if(isset($_POST['search'])){
+    $dataJson = json_encode($_POST['search']);
     $postString = "data=" . urlencode($dataJson);
     $contentLength = strlen($postString);
 
@@ -32,11 +31,16 @@ if(isset($_POST["search"])){
     $result = json_decode($returnData, true);
 
     curl_close($ch);
+	
 } else {
 	echo "<h4>No Results!</h4>";
+	echo $result;
+
 }
+
 if (empty($response)){
 	print "No Results!";
+	echo json_encode($result);
 }
 $page = new Template("Search Results");
 $page->addHeadElement('<link rel="stylesheet" href="./assets/styles/normalize.css">');
