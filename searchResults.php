@@ -5,8 +5,8 @@ $json = file_get_contents("./assets/albumMocks.json");
 //$mock = json_decode($json, true);
 session_start();
 
-if(isset($_POST['search'])){
-    $dataJson = json_encode($_POST['search']);
+if(isset($_POST)) {
+    $dataJson = json_encode($_POST);
     $postString = "data=" . urlencode($dataJson);
     $contentLength = strlen($postString);
 
@@ -15,7 +15,7 @@ if(isset($_POST['search'])){
     'Content-Length: ' . $contentLength
     );
 
-    $url = "cnmtsrv2.uwsp.edu/~lsode062/sprint1/backend/albumdata-database.php";
+    $url = "cnmtsrv2.uwsp.edu/~mbana641/sprint1/backend/albumdata-database.php";
     $ch = curl_init();
 
     curl_setopt($ch,
@@ -28,20 +28,22 @@ if(isset($_POST['search'])){
     curl_setopt($ch, CURLOPT_URL, $url);
 
     $returnData = curl_exec($ch);
-    $result = json_decode($returnData, true);
-
+    
+    $result = json_decode($returnData);
+    
     curl_close($ch);
 	
 } else {
 	echo "<h4>No Results!</h4>";
 	echo $result;
-
 }
 
-if (empty($response)){
+/*if (empty($response)){
 	print "No Results!";
 	echo json_encode($result);
 }
+*/
+
 $page = new Template("Search Results");
 $page->addHeadElement('<link rel="stylesheet" href="./assets/styles/normalize.css">');
 $page->addHeadElement('<link rel="stylesheet" type="text/css" href="./assets/styles/styles.css">');
@@ -103,7 +105,6 @@ print  '<li><a class="link navLink" href="./privacy.php"><div class="btn btn__te
             </tr>
         </thead>
         <tbody>';
-
 foreach($result as $albums) {
 	print "<tr>";
 	foreach($albums as $key => $album) {
