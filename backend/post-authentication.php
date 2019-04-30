@@ -16,7 +16,7 @@ if(isset($postData["username"]) && isset($postData["password"])){
 
     $query = "SELECT *
                     FROM user, role, user2role
-                    WHERE user.username='$username' and user.id=user2role.id";
+                    WHERE user.username='$username' and user.id=user2role.userid and user2role.roleid=role.id";
 
     $userResults = $db->dbCall($query);
     if (sizeof($userResults) > 0) {

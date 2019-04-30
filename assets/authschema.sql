@@ -34,3 +34,4 @@ INSERT INTO role (rolename) VALUES ('user');
 
 INSERT INTO user2role (userid,roleid) VALUES (1,1);
 INSERT INTO user2role (userid,roleid) VALUES (1,2);
+INSERT INTO user2role (userid,roleid) VALUES (2,2);
