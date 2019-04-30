@@ -3,7 +3,6 @@ require_once("../assets/DB.class.php");
 
 $postData = json_decode($_POST['data'], true);
 
-if(isset($postData['search']){
     $db = new DB();
     if (!$db->getConnStatus()) {
         print "An error has occurred with connection\n";
@@ -17,6 +16,5 @@ if(isset($postData['search']){
 
     $albumResults = $db->dbCall($query);
 	print json_encode($albumResults, true);
-}
 //
 ?>
