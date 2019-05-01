@@ -23,7 +23,7 @@ print '<div class="content">
     <ul>';
         if (isset($_SESSION['roles']))
         {
-            echo $User = "Welcome " . $_SESSION['user'];
+            echo $User =  $_SESSION['user'];
             echo '<li><a class="link navLink" href="./logout.php"><div class="btn btn__text">LOGOUT</div></a></li>';
         }
         else

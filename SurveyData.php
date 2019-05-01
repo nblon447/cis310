@@ -42,7 +42,7 @@ print '<header id="header">
     <ul>';
         if (isset($_SESSION['user']))
         {
-            echo "Welcome " . $_SESSION['user'];
+            echo  $_SESSION['user'];
             echo '<li><a class="link navLink" href="./logout.php"><div class="btn btn__text">LOGOUT</div></a></li>';
         }
         else
