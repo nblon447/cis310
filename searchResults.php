@@ -2,7 +2,6 @@
 require_once("./assets/Template.php");
 require_once("./assets/DB.class.php");
 $json = file_get_contents("./assets/albumMocks.json");
-//$mock = json_decode($json, true);
 session_start();
 
 if(isset($_POST)) {
@@ -38,12 +37,6 @@ if(isset($_POST)) {
 	echo $result;
 }
 
-/*if (empty($response)){
-	print "No Results!";
-	echo json_encode($result);
-}
-*/
-
 $page = new Template("Search Results");
 $page->addHeadElement('<link rel="stylesheet" href="./assets/styles/normalize.css">');
 $page->addHeadElement('<link rel="stylesheet" type="text/css" href="./assets/styles/styles.css">');
@@ -65,7 +58,7 @@ print '<div class="content">
     <span class="flexSpace"></span>
 <nav>
     <ul>';
-        if (isset($_SESSION['role']))
+        if (isset($_SESSION['roles']))
         {
             echo $User =  $_SESSION['user'];
             echo '<li><a class="link navLink" href="./logout.php"><div class="btn btn__text">LOGOUT</div></a></li>';
@@ -120,5 +113,4 @@ print '</tbody>
     </div>
 </div>';
 
-//
 ?>
