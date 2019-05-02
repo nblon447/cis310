@@ -28,7 +28,7 @@ print '
         if (isset($_SESSION['roles']))
         {
             echo $User =  $_SESSION['user'];
-            echo '<li><a class="link navLink" href="./logout.php"><div class="btn btn__text">LOUGOUT</div></a></li>';
+            echo '<li><a class="link navLink" href="./logout.php"><div class="btn btn__text">LOGOUT</div></a></li>';
         }
         else
         {
