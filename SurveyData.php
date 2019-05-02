@@ -83,12 +83,12 @@ print "</table></div>
 } else if (isset($_SESSION['roles']) && (in_array('admin', $_SESSION['roles']) == false)) {
 print '<br />
 	<br />
-	<h2>You do not have permission to view this page!</h2></div>
+	<h2 class="accessDenied">You do not have permission to view this page!</h2></div>
 </div>';
 } else if (!isset($_SESSION['roles'])) {
 	print '<br />
 	<br />
-	<h2>Please log in to view this page!</h2></div>
+	<h2 class="accessDenied">Please log in to view this page!</h2></div>
 </div>';
 }
 print $page->getBottomSection();
