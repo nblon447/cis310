@@ -57,7 +57,8 @@ print  '<li><a class="link navLink" href="./privacy.php"><div class="btn btn__te
 </nav>
 </header>
 <div class="paneContainer">
-<div class="pane">';
+<div class="pane">
+<div class="homeContent">';
 if (isset($_SESSION['roles']) && (in_array('admin', $_SESSION['roles']))) {
 print '<br />';
 print '<br />';
@@ -70,6 +71,7 @@ print "<th>Major</th>";
 print "<th>Grade</th>";
 print "<th>Topping</th>";
 print "<th>IP Address</th>";
+print "<th>Session ID</th>";
 print "</tr>";
 foreach($result as $resultArray) {
 	print "<tr>";
@@ -79,7 +81,7 @@ foreach($result as $resultArray) {
 	print "</tr>";
 }
 print "</table></div>
-</div>";
+</div></div>";
 } else if (isset($_SESSION['roles']) && (in_array('admin', $_SESSION['roles']) == false)) {
 print '<br />
 	<br />
