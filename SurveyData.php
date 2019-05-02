@@ -58,7 +58,7 @@ print  '<li><a class="link navLink" href="./privacy.php"><div class="btn btn__te
 </header>
 <div class="paneContainer">
 <div class="pane">
-<div class="homeContent">';
+<div class="SurveyDataContent">';
 if (isset($_SESSION['roles']) && (in_array('admin', $_SESSION['roles']))) {
 print '<br />';
 print '<br />';
