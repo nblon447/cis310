@@ -21,7 +21,7 @@ print '<header id="header">
 <nav>
     <ul>';
     
-        if (isset($_SESSION['role']))
+        if (isset($_SESSION['roles']))
         {
             echo $User =  $_SESSION['user'];
             echo '<li><a class="link navLink" href="./logout.php"><div class="btn btn__text">LOGOUT</div></a></li>';

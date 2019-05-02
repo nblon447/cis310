@@ -55,7 +55,9 @@ print  '<li><a class="link navLink" href="./privacy.php"><div class="btn btn__te
 		<li><a class="link navLink" href="./searchAlbums.php"><div class="btn btn__text">SEARCH</div></a></li>
     </ul>
 </nav>
-</header>';
+</header>
+<div class="paneContainer">
+<div class="pane">';
 if (isset($_SESSION['roles']) && (in_array('admin', $_SESSION['roles']))) {
 print '<br />';
 print '<br />';
@@ -76,14 +78,17 @@ foreach($result as $resultArray) {
 	}
 	print "</tr>";
 }
-print "</table>";
+print "</table></div>
+</div>";
 } else if (isset($_SESSION['roles']) && (in_array('admin', $_SESSION['roles']) == false)) {
 print '<br />
 	<br />
-	<h2>You do not have permission to view this page!</h2>';
+	<h2>You do not have permission to view this page!</h2></div>
+</div>';
 } else if (!isset($_SESSION['roles'])) {
 	print '<br />
 	<br />
-	<h2>Please log in to view this page!</h2>';
+	<h2>Please log in to view this page!</h2></div>
+</div>';
 }
 print $page->getBottomSection();
