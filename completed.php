@@ -7,6 +7,8 @@ $page->addHeadElement('<link rel="stylesheet" type="text/css" href="./assets/sty
 $page->addHeadElement('<link href="https://fonts.googleapis.com/css?family=Krub|PT+Sans|Ubuntu" rel="stylesheet">');
 $page->finalizeTopSection();
 $page->finalizeBottomSection();
+
+if(isset($_POST)) {
 $db = new DB();
 if (!$db->getConnStatus()) {
   print "An error has occurred with connection\n";
@@ -55,4 +57,7 @@ print '
 </div>
 </div>';
 print $page->getBottomSection();
+} else {
+	print "<p>All form fields required. Please try again.</p>";
+}
 ?>
