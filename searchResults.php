@@ -32,9 +32,6 @@ if(isset($_POST)) {
     
     curl_close($ch);
 	
-} else {
-	echo "<h4>No Results!</h4>";
-	echo $result;
 }
 
 $page = new Template("Search Results");
@@ -93,16 +90,26 @@ print  '<li><a class="link navLink" href="./privacy.php"><div class="btn btn__te
                     Album Length (minutes)
                 </th>
 				<th>
-                    Purchase Album
+                    Listen Here
                 </th>
             </tr>
         </thead>
         <tbody>';
+		
 foreach($result as $albums) {
 	print "<tr>";
-	foreach($albums as $key => $album) {
-		print "<td>".$album."</td>";
-	}
+	print "<td>";
+	print $albums->albumartist; 
+	print "</td>";
+	print "<td>";
+	print $albums->albumtitle; 
+	print "</td>";
+	print "<td>";
+	print $albums->albumlength; 
+	print "</td>";
+	print "<td>";
+	print $albums->albumlink; 
+	print "</td>";
 	print "</tr>";
 }
 

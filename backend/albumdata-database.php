@@ -16,5 +16,4 @@ $postData = json_decode($_POST['data'], true);
 
     $albumResults = $db->dbCall($query);
 	print json_encode($albumResults, true);
-//
 ?>
