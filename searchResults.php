@@ -108,7 +108,7 @@ foreach($result as $albums) {
 	print $albums->albumlength; 
 	print "</td>";
 	print "<td>";
-	print $albums->albumlink; 
+	print "<a href=$albums->albumlink>Listen</a>"; 
 	print "</td>";
 	print "</tr>";
 }
