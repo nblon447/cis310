@@ -23,7 +23,7 @@ if (isset($_SESSION['roles']) && (in_array('admin', $_SESSION['roles']))) {
     $returnData = curl_exec($ch);
 	
     $result = json_decode($returnData, true);
-
+	
     curl_close($ch);
 }
 
